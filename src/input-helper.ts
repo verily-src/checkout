@@ -31,6 +31,13 @@ export function getInputs(): IGitSourceSettings {
       `Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}.`
     )
   }
+  if (
+    splitRepository[0] != "verily-src"
+  ) {
+    throw new Error(
+      `Invalid repository '${qualifiedRepository}'. Expected {owner}='verily-src'`
+    )
+  }
   result.repositoryOwner = splitRepository[0]
   result.repositoryName = splitRepository[1]
 
